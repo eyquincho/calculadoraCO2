@@ -1,35 +1,37 @@
-<html>
-<h3>Selecciona tu cemento Blenture</h3>
-			<select id='cemento' name="select">
-			  <option value="44.4" selected>CEM II/B-L 32,5 N - Málaga</option>
-			  <option value="41.6">CEM II/B-M (V-L) 32,5 N - Toral</option>
-			  <option value="33.4">IV/A (P) 42,5 R/MR - Tenerife</option>
-			  <option value="51.7">CEM IV/B (P) 32,5 N-SR - Tenerife</option>
-			</select>
-            <h3>Cantidad de toneladas</h3>
-            <input id='ton' type='number' placeholder='Toneladas'/>
-            <br/>
-            <br/>
+ <html>
+ <h3>Selecciona tu cemento Blenture</h3>
+	<select id='cemento' name="select">
+	  <option value="44.4" selected>CEM II/B-L 32,5 N - Málaga</option>
+	  <option value="41.6">CEM II/B-M (V-L) 32,5 N - Toral</option>
+	  <option value="33.4">IV/A (P) 42,5 R/MR - Tenerife</option>
+	  <option value="51.7">CEM IV/B (P) 32,5 N-SR - Tenerife</option>
+	</select>
+	<h3>Cantidad de toneladas</h3>
+	<input id='ton' type='number' placeholder='Toneladas'/>
+	<br/>
+	<br/>
 			
 <a class="fusion-button button-flat fusion-button-default-size button-default fusion-button-default button-2 fusion-button-default-span fusion-button-default-type" style="--button_margin-right:25px;" onclick='calcCO2()'><span class="fusion-button-text">Calcular</span></a>			
-          <br/>
-          <br/>
-        
-        <script>
-            var cem = document.getElementById('cemento');
-            var tn = document.getElementById('ton');
-            function formatearNumero(numero){
-				return new Intl.NumberFormat("es-ES").format(numero);
-			}
-			function calcCO2() {
-                var x = cem.value;
-                var y = tn.value;
-                var calcco = (((x/100)*803)*y)/1000;
-                calcco = calcco.toFixed(2);
-                resred.innerHTML = formatearNumero(calcco);
-				var calccar = ((((x/100)*803)*y)*1000)/163;
-				calccar = calccar.toFixed(2);
-                rescoches.innerHTML = formatearNumero(calccar);	
-            }
-        </script>
+<br/>
+<br/>
+<b>Toneladas de CO2 evitadas:</br><h2><span id='resred'></span></h2></b><br/>
+<b>Toneladas de CO2 evitadas:</br><h2><span id='rescoches'></span></h2></b><br/>
+<b>Toneladas de CO2 evitadas:</br><h2><span id='resarb'></span></h2></b>
+<script>
+	var cem = document.getElementById('cemento');
+	var tn = document.getElementById('ton');
+	function formatearNumero(numero){
+		return new Intl.NumberFormat("es-ES").format(numero);
+	}
+	function calcCO2() {
+		var x = cem.value;
+		var y = tn.value;
+		var calcco = (((x/100)*803)*y)/1000;
+		calcco = calcco.toFixed(2);
+		resred.innerHTML = formatearNumero(calcco);
+		var calccar = ((((x/100)*803)*y)*1000)/138;
+		calccar = calccar.toFixed(2);
+		rescoches.innerHTML = formatearNumero(calccar);	
+	}
+</script>
 </html>
