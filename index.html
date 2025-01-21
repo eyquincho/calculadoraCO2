@@ -15,8 +15,8 @@
 <br/>
 <br/>
 <b>Toneladas de CO2 evitadas:</br><h2><span id='resred'></span></h2></b><br/>
-<b>Toneladas de CO2 evitadas:</br><h2><span id='rescoches'></span></h2></b><br/>
-<b>Toneladas de CO2 evitadas:</br><h2><span id='resarb'></span></h2></b>
+<b>Coches equivalentes:</br><h2><span id='rescoches'></span></h2></b><br/>
+<b>Arboles equivalentes:</br><h2><span id='resarb'></span></h2></b>
 <script>
 	var cem = document.getElementById('cemento');
 	var tn = document.getElementById('ton');
@@ -26,10 +26,11 @@
 	function calcCO2() {
 		var x = cem.value;
 		var y = tn.value;
-		var calcco = (((x/100)*803)*y)/1000;
+		var co2kg = ((x/100)*803)*y;
+		var calcco = co2kg/1000;
 		calcco = calcco.toFixed(2);
 		resred.innerHTML = formatearNumero(calcco);
-		var calccar = ((((x/100)*803)*y)*1000)/138;
+		var calccar = (co2kg*1000)/180;
 		calccar = calccar.toFixed(2);
 		rescoches.innerHTML = formatearNumero(calccar);	
 	}
